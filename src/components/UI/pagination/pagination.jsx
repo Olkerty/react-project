@@ -1,0 +1,20 @@
+import React, { useState } from "react";
+import { getPagesArray } from "../../../utils/pages";
+
+export const Pagination = ({ changePage, page, totalPages }) => {
+
+	let pagesArray = getPagesArray(totalPages);
+	return (
+		<div className="page__wrapper">
+			{pagesArray.map(p =>
+				<span
+					onClick={() => changePage(p)}
+					key={p}
+					className={page === p ? 'page page__current' : 'page'}
+				>
+					{p}
+				</span>
+			)}
+		</div>
+	);
+};
